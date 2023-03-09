@@ -9,7 +9,7 @@ resource "aws_instance" "weather-api-app" {
   ami           = var.ami-id
   instance_type = var.instance-type
   key_name      = aws_key_pair.weather-api.key_name
-  # iam_instance_profile   = aws_iam_instance_profile.iam-role-profile.id
+  iam_instance_profile   = aws_iam_instance_profile.iam-role-profile.id
   subnet_id              = aws_subnet.weather-api-app-subnet.id
   vpc_security_group_ids = ["${aws_security_group.weather-api-app-sg.id}"]
   user_data              = file("install_app.sh")

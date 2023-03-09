@@ -1,11 +1,10 @@
 #!/bin/bash
-sudo su
-yum update -y
-yum install -y httpd
-cd /var/www/html
-wget https://github.com/Sujagi02/Weather-API-Application/archive/refs/heads/master.zip
-unzip master.zip
-cp -r Weather-API-Application-master/* /var/www/html/
-rm -rf Weather-API-Application-master master.zip
-systemctl enable httpd 
-systemctl start httpd
+sudo yum -y update
+sudo yum -y install ruby
+sudo yum -y install wget
+cd /home/ec2-user
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+sudo chmod +x ./install
+sudo ./install auto
+sudo yum install -y python-pip
+sudo pip install awscli
